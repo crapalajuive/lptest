@@ -1,0 +1,7 @@
+.DS_Store
+Makefile
+go.txt
+_build
+actions.yml
+notes.txt
+config

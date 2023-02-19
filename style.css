@@ -21,13 +21,13 @@ h2{
     color: beige;
 }
 
-.clock{
-    display: flex;
-    position: relative;
+.clock {
+  display: flex;
 }
 
-.clock div{
-    margin: 5px;
+.clock div {
+  margin: 5px;
+  position: relative;
 }
 
 .clock span{

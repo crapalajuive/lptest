@@ -2,10 +2,9 @@
 name: test lptest
 on:
   push:
-    branches:
-      - master
+    branches: [ main ]
 jobs:
-  build_job:
+  container_job:
     name: generate new images
     runs-on: ubuntu-latest
     container:
@@ -13,37 +12,42 @@ jobs:
       volumes:
         - ${{ github.workspace }}:/tmp
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-      - name: convert img 02
-        run: |
-                convert lesspass_after.png \
-                -draw 'fill yellow rectangle 50,70 453,105' \
-                -fill black -pointsize ${fontsize_} -annotate +57+93 "${site_}" \
-                -draw 'fill yellow rectangle 50,124 453,159' \
-                -fill black -pointsize ${fontsize_} -annotate +57+147 "${username_}" \
-                -draw 'fill yellow rectangle 50,178 363,213' \
-                -fill red -pointsize ${fontsize_} -annotate +57+203 "< insert master password here >" \
-                -draw 'fill yellow rectangle 48,336 116,364' \
-                -fill black -pointsize $((fontsize_ - 2)) -annotate +55+357 "${length_}" \
-                -strokewidth 4 \
-                -fill "rgba( 0, 0, 0, 0 )" \
-                -draw 'stroke yellow rectangle 20,390 455,428' \
-                /tmp/02.png
-      - name: convert img 03
-        run: |
-                convert lesspass_after_2.png
-                -draw 'fill yellow rectangle 50,70 453,105' \
-                -fill black -pointsize ${fontsize_} -annotate +57+93 "${site_}" \
-                -draw 'fill yellow rectangle 50,124 453,159' \
-                -fill black -pointsize ${fontsize_} -annotate +57+147 "${username_}" \
-                -draw 'fill yellow rectangle 48,336 116,364' \
-                -fill black -pointsize $((fontsize_ - 2)) -annotate +55+357 "${length_}" \
-                -strokewidth 4 \
-                -fill "rgba( 0, 0, 0, 0 )" \
-                -draw 'stroke yellow rectangle 20,390 455,428' \
-                -strokewidth 2 \
-                -fill "rgba( 255, 215, 0 , 0.9 )" \
-                -draw 'stroke seagreen rectangle 63,391 371,426' \
-                -fill green -pointsize ${fontsize_} -annotate +70+417 "< use this generated password >" \
-                /tmp/03.png
+      - name: Check files
+        run: ls -lart
+
+#        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+
+#      - name: Checkout repo
+#        uses: actions/checkout@v2
+#      - name: convert img 02
+#        run: |
+#                convert lesspass_after.png \
+#                -draw 'fill yellow rectangle 50,70 453,105' \
+#                -fill black -pointsize ${fontsize_} -annotate +57+93 "${site_}" \
+#                -draw 'fill yellow rectangle 50,124 453,159' \
+#                -fill black -pointsize ${fontsize_} -annotate +57+147 "${username_}" \
+#                -draw 'fill yellow rectangle 50,178 363,213' \
+#                -fill red -pointsize ${fontsize_} -annotate +57+203 "< insert master password here >" \
+#                -draw 'fill yellow rectangle 48,336 116,364' \
+#                -fill black -pointsize $((fontsize_ - 2)) -annotate +55+357 "${length_}" \
+#                -strokewidth 4 \
+#                -fill "rgba( 0, 0, 0, 0 )" \
+#                -draw 'stroke yellow rectangle 20,390 455,428' \
+#                /tmp/02.png
+#      - name: convert img 03
+#        run: |
+#                convert lesspass_after_2.png
+#                -draw 'fill yellow rectangle 50,70 453,105' \
+#                -fill black -pointsize ${fontsize_} -annotate +57+93 "${site_}" \
+#                -draw 'fill yellow rectangle 50,124 453,159' \
+#                -fill black -pointsize ${fontsize_} -annotate +57+147 "${username_}" \
+#                -draw 'fill yellow rectangle 48,336 116,364' \
+#                -fill black -pointsize $((fontsize_ - 2)) -annotate +55+357 "${length_}" \
+#                -strokewidth 4 \
+#                -fill "rgba( 0, 0, 0, 0 )" \
+#                -draw 'stroke yellow rectangle 20,390 455,428' \
+#                -strokewidth 2 \
+#                -fill "rgba( 255, 215, 0 , 0.9 )" \
+#                -draw 'stroke seagreen rectangle 63,391 371,426' \
+#                -fill green -pointsize ${fontsize_} -annotate +70+417 "< use this generated password >" \
+#                /tmp/03.png

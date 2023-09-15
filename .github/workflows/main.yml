@@ -29,7 +29,7 @@ jobs:
                 -strokewidth 4 \
                 -fill "rgba( 0, 0, 0, 0 )" \
                 -draw 'stroke yellow rectangle 20,390 455,428' \
-                02.png
+                /tmp/02.png
       - name: convert img 03
         run: |
                 convert lesspass_after_2.png
@@ -46,4 +46,4 @@ jobs:
                 -fill "rgba( 255, 215, 0 , 0.9 )" \
                 -draw 'stroke seagreen rectangle 63,391 371,426' \
                 -fill green -pointsize ${fontsize_} -annotate +70+417 "< use this generated password >" \
-                03.png
+                /tmp/03.png

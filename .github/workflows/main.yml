@@ -57,13 +57,13 @@ jobs:
 #                add: 'docs --force'
 
       - name: commit docs changes
-              run: |
-                git config --global user.name "github actions"
-                git config --global user.email "crapalajuive@gmail.com"
-                git add docs/
-                git commit --amend --no-edit
+        run: |
+          git config --global user.name "github actions"
+          git config --global user.email "crapalajuive@gmail.com"
+          git add docs/
+          git commit --amend --no-edit
+          git push origin master --force
 
-                git push origin master --force
 #          git push origin master:deploy --force
 
 #       - name: Run a multi-line script

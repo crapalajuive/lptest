@@ -51,7 +51,6 @@ img_new_=${work_dir_}/${out_file_}.${ext_}
 [[ -f ${work_dir_}/${file_}.${ext_} ]] || cp ${file_}.${ext_} ${work_dir_}
 
 # rectangle x0,y0 x1,y1
-docker run --rm -it -v ${work_dir_}:${work_dir_} --name convert imagemagik:latest \
 convert ${img_org_} \
 -draw 'fill yellow rectangle 50,70 453,105' \
 -fill black -pointsize ${fontsize_} -annotate +57+93 "${site_}" \

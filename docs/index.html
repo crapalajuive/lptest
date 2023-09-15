@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>lesspass test 1</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+
+    <h2>Steps to access some_app ...</h2>
+    <p>
+     assumes you have (should have been pre-shared with you):
+    <ul>
+     <li>some_app has been installed</li>
+     <li>some_app db  file: some-site-name-here.kdbx</li>
+     <li>some_app key file: some-site-name-here.key</li>
+     <li>master password</li>
+    </ul>
+    </p>
+    <div>
+    <h3>1) goto <a href="https://www.lesspass.com" target="_blank" rel="noopener noreferrer">https://www.lesspass.com</a></h3>
+    <img width="250" src="01.png" alt="01">
+    </div>
+    <br/>
+    <div>
+    <h3> 2) enter info into the form </h3>
+    <svg width="600" height="120" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="600" height="120" fill="aquamarine" />
+        <foreignobject x="0" y="0" width="600" height="120">
+            <body xmlns="http://www.w3.org/1999/xhtml">
+             <ul>
+               <li>Site: <b>some-site-name-here</b></li>
+               <li>Username: <b>a_user_Name.123#%</b></li>
+               <li>Master Password: <b>**use your pre-shared master password**</b></li>
+               <li>Length: <b>25</b></li>
+             </ul>
+            </body>
+        </foreignobject>
+    </svg>
+    <br/>
+    <img width="250" src="02.png" alt="02">
+<div>
+    <u>note:</u> keep all other options at the defaults
+</div>
+<div>
+    when done - press <b>"Generate & Copy"</b>
+</div>
+    </div>
+    <br/>
+    <div>
+    <h3> 3) start "some_app"</h3>
+    <ul>
+    <li>make sure both <b>some-site-name-here.kdbx</b> and <b>some-site-name-here.key</b> are in the same directory</li>
+    <li>then run: <b>some_app some-site-name-here.kdbx</b> using the generated password as the some_app password</li>
+    </ul>
+    <img width="250" src="03.png" alt="03">
+    </div>
+
+  </body>
+</html>

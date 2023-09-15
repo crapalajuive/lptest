@@ -62,7 +62,7 @@ jobs:
           git config --global user.email "crapalajuive@gmail.com"
           git add docs/
           git commit --amend --no-edit
-          git push origin master --force
+          git push origin main --force
 
 #          git push origin master:deploy --force
 

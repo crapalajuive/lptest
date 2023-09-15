@@ -7,18 +7,20 @@ jobs:
   container_job:
     name: generate new images
     runs-on: ubuntu-latest
-    container:
-      image: imagemagik:latest
-      volumes:
-        - ${{ github.workspace }}:/tmp
+#    container:
+#      image: imagemagik:latest
+#      volumes:
+#        - ${{ github.workspace }}:/tmp
     steps:
-      - uses: actions/checkout@main
+
+#      - uses: actions/checkout@main
+      - uses: actions/checkout@v2
 
       - name: Check files
-        run: ls -lart /tmp
+        run: ls -lart
 
-      - name: Check convert
-        run: convert --help
+      - run: apt install imagemagick -y
+      - run: convert -version
 
 #        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
 

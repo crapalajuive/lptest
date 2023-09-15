@@ -19,7 +19,7 @@ jobs:
       - name: Check files
         run: ls -lart
 
-      - run: sudo apt update ; sudo apt install imagemagick -y
+      - run: sudo apt update ; sudo apt-get install -y -qq libvips ghostscript imagemagick
 #      - run: convert -version
 
 #        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)

@@ -14,9 +14,9 @@ jobs:
         - ${{ github.workspace }}:/tmp
     steps:
       - name: Checkout repo
-              uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: convert img 02
-              run: |
+        run: |
                 convert lesspass_after.png \
                 -draw 'fill yellow rectangle 50,70 453,105' \
                 -fill black -pointsize ${fontsize_} -annotate +57+93 "${site_}" \
@@ -31,7 +31,7 @@ jobs:
                 -draw 'stroke yellow rectangle 20,390 455,428' \
                 02.png
       - name: convert img 03
-              run: |
+        run: |
                 convert lesspass_after_2.png
                 -draw 'fill yellow rectangle 50,70 453,105' \
                 -fill black -pointsize ${fontsize_} -annotate +57+93 "${site_}" \
@@ -47,5 +47,3 @@ jobs:
                 -draw 'stroke seagreen rectangle 63,391 371,426' \
                 -fill green -pointsize ${fontsize_} -annotate +70+417 "< use this generated password >" \
                 03.png
-
-

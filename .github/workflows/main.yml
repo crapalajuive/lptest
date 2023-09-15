@@ -12,8 +12,13 @@ jobs:
       volumes:
         - ${{ github.workspace }}:/tmp
     steps:
+      - uses: actions/checkout@main
+
       - name: Check files
-        run: ls -lart
+        run: ls -lart /tmp
+
+      - name: Check convert
+        run: convert --help
 
 #        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
 

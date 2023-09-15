@@ -4,6 +4,8 @@ out_file_=02
 
 source config.env
 
+[[ -d ${work_dir_} ]] || mkdir ${work_dir_}
+
 echo ${file_}
 ext_="${file_##*.}"
 echo ${ext_}

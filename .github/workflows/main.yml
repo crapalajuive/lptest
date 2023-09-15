@@ -1,4 +1,6 @@
 
+## warning: make sure workflow permissions (in settings/actions) are set to "read and write"
+
 name: test actions 1
 on:
   push:
@@ -17,8 +19,8 @@ jobs:
     steps:
 
 #      - uses: actions/checkout@main
-#      - uses: actions/checkout@v2
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+#      - uses: actions/checkout@v3
 #        with:
 #          path: 'docs/'
 
@@ -50,23 +52,24 @@ jobs:
 ##            git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
 ##            git push
 
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: github actions
-          author_email: crapalajuive@gmail.com
-          message: 'adding docs'
-          add: '. --force'
-          cwd: 'docs/'
+#       - name: Commit changes
+#         uses: EndBug/add-and-commit@v9
+#         with:
+#           author_name: github actions
+#           author_email: crapalajuive@gmail.com
+#           message: 'adding docs'
+#           add: '. --force'
+#           cwd: 'docs/'
 
-#      - name: commit docs changes
-#        run: |
-#          git config --global user.name "github actions"
-#          git config --global user.email "crapalajuive@gmail.com"
-#          git add docs/
+      - name: commit docs changes
+        run: |
+          git config --global user.name "github actions"
+          git config --global user.email "crapalajuive@gmail.com"
+          git add docs/
+          git commit -m 'adding docs'
+          git push origin main --force
+
 #          git commit --amend --no-edit
-#          git push origin main --force
-
 #          git push origin master:deploy --force
 
 #       - name: Run a multi-line script

@@ -12,10 +12,8 @@ echo ${file_}
 
 [[ -f ${work_dir_}/01.png ]] || cp lesspass_before.png ${work_dir_}/01.png
 
-img_org_=${work_dir_}/${file_}.${ext_}
+img_org_=${file_}.${ext_}
 img_new_=${work_dir_}/${out_file_}.${ext_}
-
-[[ -f ${work_dir_}/${file_}.${ext_} ]] || cp ${file_}.${ext_} ${work_dir_}
 
 # rectangle x0,y0 x1,y1
 convert ${img_org_} \
@@ -45,10 +43,8 @@ echo ${ext_}
 file_=( "${file_%.${ext_}}" )
 echo ${file_}
 
-img_org_=${work_dir_}/${file_}.${ext_}
+img_org_=${file_}.${ext_}
 img_new_=${work_dir_}/${out_file_}.${ext_}
-
-[[ -f ${work_dir_}/${file_}.${ext_} ]] || cp ${file_}.${ext_} ${work_dir_}
 
 # rectangle x0,y0 x1,y1
 convert ${img_org_} \

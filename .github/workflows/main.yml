@@ -17,8 +17,10 @@ jobs:
     steps:
 
 #      - uses: actions/checkout@main
-      - uses: actions/checkout@v2
-#      - uses: actions/checkout@v3
+#      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          path: 'docs/'
 
       - name: Check files before
         run: ls -lart docs
@@ -48,21 +50,22 @@ jobs:
 ##            git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
 ##            git push
 
-#      - name: Commit changes
-#              uses: EndBug/add-and-commit@v9
-#              with:
-#                author_name: github actions
-#                author_email: crapalajuive@gmail.com
-#                message: 'adding docs'
-#                add: 'docs --force'
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: github actions
+          author_email: crapalajuive@gmail.com
+          message: 'adding docs'
+          add: '. --force'
+          cwd: 'docs/'
 
-      - name: commit docs changes
-        run: |
-          git config --global user.name "github actions"
-          git config --global user.email "crapalajuive@gmail.com"
-          git add docs/
-          git commit --amend --no-edit
-          git push origin main --force
+#      - name: commit docs changes
+#        run: |
+#          git config --global user.name "github actions"
+#          git config --global user.email "crapalajuive@gmail.com"
+#          git add docs/
+#          git commit --amend --no-edit
+#          git push origin main --force
 
 #          git push origin master:deploy --force
 

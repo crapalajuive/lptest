@@ -48,6 +48,24 @@ jobs:
 ##            git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
 ##            git push
 
+#      - name: Commit changes
+#              uses: EndBug/add-and-commit@v9
+#              with:
+#                author_name: github actions
+#                author_email: crapalajuive@gmail.com
+#                message: 'adding docs'
+#                add: 'docs --force'
+
+      - name: commit docs changes
+              run: |
+                git config --global user.name "github actions"
+                git config --global user.email "crapalajuive@gmail.com"
+                git add docs/
+                git commit --amend --no-edit
+
+                git push origin master --force
+#          git push origin master:deploy --force
+
 #       - name: Run a multi-line script
 #         shell: 'script -q -e -c "bash {0}"'
 #         run: |

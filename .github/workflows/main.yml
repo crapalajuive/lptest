@@ -24,8 +24,8 @@ jobs:
 #        with:
 #          path: 'docs/'
 
-      - name: Check files before
-        run: ls -lart docs
+#      - name: Check files before
+#        run: ls -lart docs
 
 #      - run: sudo apt update ; sudo apt-get install -y -qq libvips ghostscript imagemagick
       - run: sudo apt-get install -y -qq libvips ghostscript imagemagick

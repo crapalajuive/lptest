@@ -13,22 +13,40 @@ jobs:
 #      volumes:
 #        - ${{ github.workspace }}:/tmp
 
+
     steps:
 
 #      - uses: actions/checkout@main
       - uses: actions/checkout@v2
+#      - uses: actions/checkout@v3
 
-      - name: Check files
-        run: ls -lart
+      - name: Check files before
+        run: ls -lart docs
 
 #      - run: sudo apt update ; sudo apt-get install -y -qq libvips ghostscript imagemagick
       - run: sudo apt-get install -y -qq libvips ghostscript imagemagick
 
 #      - run: convert -version
 
-      - name: Run a multi-line script
+      - name: Run script (/w tty workaround)
         shell: 'script -q -e -c "bash {0}"'
         run: source runme.sh
+
+      - name: Check files after
+        run: ls -lart docs
+
+      - name: commit docs changes
+        env:
+          CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
+          CI_COMMIT_AUTHOR: Continuous Integration
+          CI_COMMIT_EMAIL: crapalajuive@gmail.com
+        run: |
+            git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+            git config --global user.email "${{ env.CI_COMMIT_EMAIL }}"
+
+            git add docs
+            git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
+            git push
 
 #       - name: Run a multi-line script
 #         shell: 'script -q -e -c "bash {0}"'
@@ -38,3 +56,7 @@ jobs:
 # where shell: 'script -q -e -c "bash {0}"' is the trick.
 
 #        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+
+#            git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+#            git config --global user.email "username@users.noreply.github.com"
+#            git config --global user.email "crapalajuive@gmail.com"
